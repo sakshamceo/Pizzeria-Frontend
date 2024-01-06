@@ -1,0 +1,18 @@
+.small-image {
+
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the entire container */
+  }
+  .container {
+    padding-top: 156px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Set the height to the viewport height for full-screen effect */
+  }
+  
+  .opacity-08 {
+    opacity: 0.3; /* Adjust the opacity as needed */
+  }
+  

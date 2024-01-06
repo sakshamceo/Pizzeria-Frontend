@@ -1,0 +1,38 @@
+<div *ngIf="!login; else welcomeContent">
+    <!-- Your login form content -->
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Login</h5>
+              <div class="mb-3">
+                <label class="form-label"><strong>Email</strong></label>
+                <input name="username" type="text" class="form-control" placeholder="Email" [(ngModel)]="email">
+              </div>
+              <form #formdata="ngForm" (ngSubmit)="onSubmit(formdata)">
+                <div class="mb-3">
+                  <label for="username" class="form-label"><strong>Username</strong></label>
+                  <input name="username" type="text" class="form-control" placeholder="Username" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label"><strong>Password</strong></label>
+                  <input name="password" type="password" class="form-control" placeholder="Password" ngModel required>
+                </div>
+                        <button class="btn btn-success w-100" type="submit" >Login</button>
+              
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #welcomeContent>
+    <div>
+      Welcome!
+    </div>
+  </ng-template>
+  

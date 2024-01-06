@@ -1,0 +1,89 @@
+<div *ngIf="cartItems.length === 0; else showCart" class="mt-4">
+  <div class="container text-center">
+    <img src="assets/no-results.png" class="opacity-08" alt="No Results">
+  </div>
+</div>
+<ng-template #showCart>
+  <div class="row">
+     
+    <div class="col-sm-8 mt-4">
+       <!--pizza-->
+      <div class="row">
+        <div class="col" *ngFor="let c of cartItems">
+          
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img [src]="c.image" class="card-img" alt="{{ c.name }}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize">{{ c.name }}</h5>
+                  <p class="card-text">&#8377; {{ c.quantity === 0 ? c.price : c.quantity * c.price }}</p>
+                  <p class="card-text">
+                    <ng-container *ngIf="c.quantity === 0; else showQuantity">
+                      <b class="text-capitalize">Quantity: 1</b>
+                    </ng-container>
+                    <ng-template #showQuantity>
+                      <b class="text-capitalize">Quantity: {{ c.quantity }}</b>
+                    </ng-template>
+                  </p>
+                 <button class="btn btn-danger" (click)="remove(c)"><i class="fa fa-trash"></i> Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!--toppi-->
+       <div class="row">
+        <div class="col-md-3" *ngFor="let c of toppings">
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-12">
+                <img [src]="c.image" class="card-img" alt="{{ c.name }}">
+              </div>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize" style="font-size: 1.2rem; margin-bottom: 0;">{{ c.tname }}</h5>
+                  <p class="text-capitalize" style="font-size: 1rem; margin-bottom: 0;">Price: ₹{{ c.price}}</p>
+                  <button class="btn btn-danger" (click)="removeTopp(c)" style="margin-top: 0;"><i class="fa fa-trash"></i> Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+      <!--subtotal-->
+    <div class="col-sm-4 mt-4">
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><span class="float-end">Sub Total:</span></td>
+                <td>&#8377;{{ total }}</td>
+              </tr>
+            </tbody>
+             </table>
+          <div class="text-center" >
+            <a class="btn btn-info mb-2" routerLink="/Toppings" >Add Toppings 🥕</a>
+            <div *ngIf="this.login==false ;else pay" >
+              <a class="btn btn-success ms-2" (click)="signnow()" routerLink="/Login"> Sign In 🔐 </a>
+            </div>
+            <ng-template #pay>
+              <div>
+              
+                <a class="btn btn-success ms-2" (click)="paynow()"> Pay Now💸 </a>
+              </div>
+            </ng-template> 
+          </div>    
+        </div>
+      </div>
+    </div>
+   
+  </div>  
+</ng-template>
+
