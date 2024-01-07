@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
 @import 'sweetalert2/dist/sweetalert2.min.css';
+@import "node_modules/bootstrap/dist/css/bootstrap.css";
 
 body{
 	background: #ffb347;  /* fallback for old browsers */
