@@ -46,7 +46,7 @@ getTotal()
   }
   constructor(private http: HttpClient) { }
   sendOrder(order: Final): Observable<any> {
-    const apiUrl = 'http://localhost:3002/send';
+    const apiUrl = 'https://cute-puce-angler-kit.cyclic.app/send';
     return this.http.post(apiUrl, order);
   }
 }

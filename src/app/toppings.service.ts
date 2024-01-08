@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ToppingsService {
-  private apiUrl = 'http://localhost:3002/BuildPizza';
+  private apiUrl = 'https://cute-puce-angler-kit.cyclic.app/BuildPizza';
   constructor(private http: HttpClient) { }
   getToppings(): Observable<any> {
     return this.http.get(this.apiUrl);

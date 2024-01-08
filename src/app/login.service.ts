@@ -10,7 +10,7 @@ export class LoginService {
   isLoggedIn:boolean=false;
   name:string="";
   //use an Observable to notify subscribers (like your Navbar component) when the name changes.
-  private apiUrl = 'http://localhost:3002/login'; 
+  private apiUrl = 'https://cute-puce-angler-kit.cyclic.app/login'; 
   constructor(private http: HttpClient) { }
   login(username: string, password: string): Observable<any> {
     return this.http.post( this.apiUrl, {username, password });
